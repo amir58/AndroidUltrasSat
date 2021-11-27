@@ -11,6 +11,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidUltrasSat">
+
+        <activity android:name=".firebase.FirebaseSplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".firebase.FirebaseRegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".firebase.FirebaseLoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".firebase.FirebaseDatabaseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".firebase.FirebaseInsertTaskActivity"
+            android:exported="false" />
         <activity
             android:name=".database.InsertTaskActivity"
             android:exported="false" />
@@ -42,11 +62,7 @@
         </activity>
         <activity android:name=".before.HomeActivity" />
         <activity android:name=".database.DatabaseActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 
