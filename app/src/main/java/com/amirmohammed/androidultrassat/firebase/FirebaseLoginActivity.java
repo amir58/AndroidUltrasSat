@@ -66,5 +66,6 @@ public class FirebaseLoginActivity extends AppCompatActivity {
     public void register(View view) {
         Intent intent = new Intent(this, FirebaseRegisterActivity.class);
         startActivity(intent);
+
     }
 }

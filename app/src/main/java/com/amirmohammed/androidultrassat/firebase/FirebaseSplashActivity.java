@@ -6,7 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.amirmohammed.androidultrassat.R;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 public class FirebaseSplashActivity extends AppCompatActivity {
     FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
@@ -15,6 +17,13 @@ public class FirebaseSplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_firebase_splash);
+
+        FirebaseMessaging.getInstance().getToken().addOnSuccessListener(new OnSuccessListener<String>() {
+            @Override
+            public void onSuccess(String s) {
+                System.out.println("TOKEN => " + s);
+            }
+        });
 
         Thread thread = new Thread(new Runnable() {
             @Override
