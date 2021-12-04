@@ -62,7 +62,6 @@ public class FirebaseInsertTaskActivity extends AppCompatActivity {
             }
         });
 
-
     }
 
     private void showTimePickerDialog() {

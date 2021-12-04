@@ -41,6 +41,7 @@ public class FirebaseDatabaseActivity extends AppCompatActivity {
         recyclerViewTasks = findViewById(R.id.rv_tasks);
         bottomNavigationView = findViewById(R.id.database_bottom_navigation);
 
+
         getTasksFromFirestore("active");
 
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {

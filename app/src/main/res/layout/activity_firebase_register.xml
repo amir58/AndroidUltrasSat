@@ -7,7 +7,14 @@
     android:orientation="vertical"
     tools:context=".firebase.FirebaseRegisterActivity">
 
-
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="@dimen/_75sdp"
+        android:layout_height="@dimen/_75sdp"
+        android:layout_gravity="center"
+        android:onClick="pickImage"
+        android:id="@+id/iv_profile"
+        android:layout_margin="@dimen/_10sdp"
+        android:src="@mipmap/ic_launcher" />
 
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
