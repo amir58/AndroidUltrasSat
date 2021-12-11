@@ -82,6 +82,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/_10sdp"
         android:onClick="register"
+        android:id="@+id/btn_register"
         android:text="Register"
         app:cornerRadius="@dimen/_10sdp" />
 
