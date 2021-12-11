@@ -2,6 +2,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.amirmohammed.androidultrassat">
 
+    <!--
+         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+         Google Maps Android API v2, but you must specify either coarse or fine
+         location permissions for the "MyLocation" functionality.
+    -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- Always include this permission -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -11,9 +20,33 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidUltrasSat">
+
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/.
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity
+            android:name=".maps.AddressMapsActivity"
+            android:exported="false"
+            android:label="@string/title_activity_address_maps" />
+        <activity
+            android:name=".maps.SimpleMapsActivity"
+            android:exported="false"
+            android:label="@string/title_activity_simple_maps" />
         <activity
             android:name=".navigation.NavigationMainActivity"
-            android:exported="true" >
+            android:exported="false" />
+        <activity
+            android:name=".maps.MapsMainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,9 +56,7 @@
         <activity
             android:name=".firebase.FirebaseProfileActivity"
             android:exported="false" />
-        <activity android:name=".firebase.FirebaseSplashActivity">
-
-        </activity>
+        <activity android:name=".firebase.FirebaseSplashActivity" />
         <activity
             android:name=".firebase.FirebaseRegisterActivity"
             android:exported="false" />
