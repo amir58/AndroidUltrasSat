@@ -2,6 +2,7 @@ package com.amirmohammed.androidultrassat.firebase;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
@@ -95,13 +96,30 @@ public class FirebaseDatabaseActivity extends AppCompatActivity {
                 });
     }
 
-    private void showTasks(List<Task> tasks) {
-
-    }
-
-
     public void openInsertTaskActivity(View view) {
         Intent intent = new Intent(FirebaseDatabaseActivity.this, FirebaseInsertTaskActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.firebase_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.item_profile) {
+            Intent intent = new Intent(FirebaseDatabaseActivity.this, FirebaseProfileActivity.class);
+            startActivity(intent);
+        }
+        if (item.getItemId() == R.id.item_logout) {
+            firebaseAuth.signOut(); // Delete current user
+            finish();
+            Intent intent = new Intent(FirebaseDatabaseActivity.this, FirebaseLoginActivity.class);
+            startActivity(intent);
+
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

@@ -11,7 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidUltrasSat">
-
+        <activity
+            android:name=".firebase.FirebaseProfileActivity"
+            android:exported="false" />
         <activity android:name=".firebase.FirebaseSplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -61,17 +63,13 @@
             </intent-filter>
         </activity>
         <activity android:name=".before.HomeActivity" />
-        <activity android:name=".database.DatabaseActivity">
+        <activity android:name=".database.DatabaseActivity"></activity>
 
-        </activity>
-
-        <service
-            android:name=".firebase.MyFCMService">
+        <service android:name=".firebase.MyFCMService">
             <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-
     </application>
 
 </manifest>

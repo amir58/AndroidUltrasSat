@@ -25,6 +25,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class MaterialActivity extends AppCompatActivity {
     private static final String TAG = "Posts";
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
