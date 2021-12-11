@@ -47,16 +47,14 @@
         <activity
             android:name=".maps.MapsMainActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".firebase.FirebaseProfileActivity"
             android:exported="false" />
-        <activity android:name=".firebase.FirebaseSplashActivity" />
+        <activity android:name=".firebase.FirebaseSplashActivity" >
+
+        </activity>
         <activity
             android:name=".firebase.FirebaseRegisterActivity"
             android:exported="false" />
@@ -99,7 +97,13 @@
             </intent-filter>
         </activity>
         <activity android:name=".before.HomeActivity" />
-        <activity android:name=".database.DatabaseActivity" />
+        <activity android:name=".database.DatabaseActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         <service android:name=".firebase.MyFCMService">
             <intent-filter>

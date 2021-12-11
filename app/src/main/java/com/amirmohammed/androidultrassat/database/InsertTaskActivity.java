@@ -11,11 +11,18 @@ import android.widget.AdapterView;
 import android.widget.AutoCompleteTextView;
 import android.widget.DatePicker;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.amirmohammed.androidultrassat.R;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.Calendar;
+
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.annotations.NonNull;
+import io.reactivex.rxjava3.core.CompletableObserver;
+import io.reactivex.rxjava3.disposables.Disposable;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class InsertTaskActivity extends AppCompatActivity {
     TextInputEditText editTextTitle;
@@ -125,7 +132,26 @@ public class InsertTaskActivity extends AppCompatActivity {
         User user = new User("Amir", "Mohamed");
         Task task = new Task(title, date, time, "active", user);
 
-        TasksDatabase.db.tasksDAO().insertTask(task);
+        TasksDatabase.db.tasksDAO().insertTask(task)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(new CompletableObserver() {
+                @Override
+                public void onSubscribe(@NonNull Disposable d) {
+
+                }
+
+                @Override
+                public void onComplete() {
+                    Toast.makeText(InsertTaskActivity.this, "Task inserted", Toast.LENGTH_SHORT).show();
+                }
+
+                @Override
+                public void onError(@NonNull Throwable e) {
+                    Toast.makeText(InsertTaskActivity.this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
+
     }
 
 

@@ -26,6 +26,28 @@ public class FirebaseLoginActivity extends AppCompatActivity {
 
         editTextEmail = findViewById(R.id.firebase_et_email);
         editTextPassword = findViewById(R.id.firebase_et_password);
+
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(2000);
+
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(FirebaseLoginActivity.this, "Hello", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        thread.start();
+
     }
 
     public void login(View view) {

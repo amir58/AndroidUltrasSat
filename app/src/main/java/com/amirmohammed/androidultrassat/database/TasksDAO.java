@@ -8,11 +8,14 @@ import androidx.room.Update;
 
 import java.util.List;
 
+import io.reactivex.rxjava3.core.Completable;
+import io.reactivex.rxjava3.core.Single;
+
 @Dao
 public interface TasksDAO {
 
     @Query("SELECT * FROM tasks WHERE status = 'active'")
-    List<Task> getActiveTasks();
+    Single<List<Task>> getActiveTasks();
 
     @Query("SELECT * FROM tasks WHERE status = 'done'")
     List<Task> getDoneTasks();
@@ -21,7 +24,7 @@ public interface TasksDAO {
     List<Task> getArchiveTasks();
 
     @Insert
-    void insertTask(Task task);
+    Completable insertTask(Task task);
 
     @Update
     void updateTask(Task task);
